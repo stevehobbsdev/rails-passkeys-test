@@ -1,0 +1,7 @@
+<h1>Register passkey</h1>
+<p><a href="/account/logout">Logout</a></p>
+
+<div data-controller="webauthn" data-webauthn-options-value="<%= @webauthn_options %>">
+  <button data-action="click->webauthn#register"
+    >Add a passkey</button>
+</div>

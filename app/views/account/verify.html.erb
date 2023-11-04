@@ -1,0 +1,6 @@
+<h1>Log in using your passkey</h1>
+<p><a href="/account/logout">Cancel</a></p>
+
+<div data-controller="webauthn" data-webauthn-verify-value="<%= @webauthn_options %>">
+  <button data-action="click->webauthn#verify">Use passkey</button>
+</div>
