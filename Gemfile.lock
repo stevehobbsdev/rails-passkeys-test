@@ -105,6 +105,10 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.1.1)
       ruby2_keywords
     erubi (1.12.0)
@@ -153,6 +157,7 @@ GEM
     openssl (3.2.0)
     openssl-signature_algorithm (1.3.0)
       openssl (> 2.0)
+    pg (1.5.4)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -266,8 +271,10 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv-rails
   jbuilder
   jsbundling-rails
+  pg
   puma (>= 5.0)
   rails (~> 7.1.1)
   selenium-webdriver
