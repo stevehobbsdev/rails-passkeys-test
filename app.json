@@ -1,0 +1,9 @@
+{
+  "name": "passkeys-test",
+  "description": "Passkeys Test Site",
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
