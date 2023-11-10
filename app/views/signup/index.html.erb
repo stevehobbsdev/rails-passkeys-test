@@ -1,0 +1,13 @@
+<h1>Create an account</h1>
+
+<%= form_tag '/signup', method: :post do %>
+  <%= label_tag :username, "Email: " %>
+  <%= email_field_tag :username, 'test@test.com', required: true %>
+
+  <%= label_tag :password, "Password: " %>
+  <%= password_field_tag :password, '', required: true %>
+
+  <div>
+    <%= button_tag "Create account" %>
+  </div>
+<% end %>

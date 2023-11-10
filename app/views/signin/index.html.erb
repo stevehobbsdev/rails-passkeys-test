@@ -1,0 +1,10 @@
+<h1>Log in to your account</h1>
+
+<%= form_tag signin_path, method: :post do %>
+  <%= label_tag :username, "Email: " %>
+  <%= email_field_tag :username, params[:username], required: true %>
+
+  <div>
+    <%= button_tag "Log in" %>
+  </div>
+<% end %>

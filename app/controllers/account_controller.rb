@@ -2,6 +2,10 @@ class AccountController < ApplicationController
   before_action :ensure_user, except: [:login, :do_login]
   skip_before_action :verify_authenticity_token
 
+  def index
+    
+  end
+
   def login
     @user = User.find(session[:user_id]) if session[:user_id]
 
