@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_10_162318) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_10_170043) do
+  create_table "credentials", force: :cascade do |t|
+    t.string "webauthn_id"
+    t.string "sign_count"
+    t.string "public_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
