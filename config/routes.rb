@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'signin/index'
+  get 'signup' => 'signup#index'
+  post 'signup' => 'signup#register'
+  get 'signin' => 'signin#index'
+  post 'signin' => 'signin#index_post'
+  
+  get 'account' => 'account#index'
+
+  get 'signup/verify'
+  get 'signup/callback'
   get 'home/index'
   get 'account/register'
   post 'account/register_callback'

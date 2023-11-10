@@ -1,6 +1,9 @@
 <h1>Home page</h1>
 
-<% if @user %>
-  <p>If you can see this, it means you're logged in!</p>
-  <p><a href="/account/logout">Log out</a></p>
+<% if !@user %>
+  <p>
+    <%= link_to "Log in", signin_path %> or <%= link_to "sign up", signup_path %>
+  </p>
+<% else %>
+  <p><%= link_to "Manage your account", account_path %></p>
 <% end %>
