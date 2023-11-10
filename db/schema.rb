@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_10_170043) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_10_232206) do
   create_table "credentials", force: :cascade do |t|
     t.string "webauthn_id"
     t.string "sign_count"
     t.string "public_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_credentials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,4 +32,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_10_170043) do
     t.string "password_hash"
   end
 
+  add_foreign_key "credentials", "users"
 end

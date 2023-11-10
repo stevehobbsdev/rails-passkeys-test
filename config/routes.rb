@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'signin' => 'signin#index'
   post 'signin' => 'signin#index_post'
   
+  get 'signin/password' => 'signin#password'
+  post 'signin/password' => 'signin#verify_password'
+  
   get 'account' => 'account#index'
 
   get 'signup/verify'

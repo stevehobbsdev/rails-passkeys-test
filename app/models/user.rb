@@ -3,7 +3,7 @@ require 'bcrypt'
 class User < ApplicationRecord
   include BCrypt
 
-  has_many :credential, dependent: :destroy
+  has_many :credentials, dependent: :destroy
 
   def password
     @password ||= Password.new(password_hash)
