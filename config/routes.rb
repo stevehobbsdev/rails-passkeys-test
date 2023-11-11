@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   
   get 'signin/password' => 'signin#password'
   post 'signin/password' => 'signin#verify_password'
+
+  get 'signin/passkey'
+  get 'signin/passkey_options'
+  post 'signin/passkey' => 'signin#verify_passkey'
   
   get 'account' => 'account#index'
   get 'account/passkey_options'

@@ -13,8 +13,6 @@ export default class extends Controller {
       publicKey: options,
     });
 
-    console.log({ credential });
-
     await fetch("/account/register_passkey", {
       body: JSON.stringify(credential),
       method: "POST",
@@ -23,14 +21,14 @@ export default class extends Controller {
       },
     });
 
-    location.href = "/";
+    location.href = "/account";
   }
 
   async verify() {
-    const options = JSON.parse(this.verifyValue);
+    const options = await (await fetch("/signin/passkey_options")).json();
     const response = await get({ publicKey: options });
 
-    const fetchResult = await fetch("/account/verify_callback", {
+    const fetchResult = await fetch("/signin/passkey", {
       body: JSON.stringify(response),
       method: "POST",
       headers: {
