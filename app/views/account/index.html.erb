@@ -1,8 +1,15 @@
 <h1>Your account</h1>
 
 <p><%= link_to "Log out", account_logout_path %></p>
-
 <p>Email: <%= @user.email %></p>
 
-<h2>Credentials</h2>
+<h3>Passkeys</h3>
 
+<div data-controller="webauthn" data-webauthn-options-value="<%= @webauthn_options %>">
+  <button data-action="click->webauthn#register"
+    >Add a passkey</button>
+</div>
+
+<% @user.credentials.each do |c| %>
+<p><strong><%= c.name %></strong> | <%= link_to "Remove", '/account/remove_passkey' %></p>
+<% end %>

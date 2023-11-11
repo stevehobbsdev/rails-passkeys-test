@@ -2,20 +2,20 @@ import { Controller } from "@hotwired/stimulus";
 import { create, get } from "@github/webauthn-json";
 
 export default class extends Controller {
-  static values = { options: String, verify: String };
+  static values = { verify: String };
 
   connect() {}
 
   async register() {
-    console.log(JSON.parse(this.optionsValue));
+    const options = await (await fetch("/account/passkey_options")).json();
 
     const credential = await create({
-      publicKey: JSON.parse(this.optionsValue),
+      publicKey: options,
     });
 
     console.log({ credential });
 
-    await fetch("/account/register_callback", {
+    await fetch("/account/register_passkey", {
       body: JSON.stringify(credential),
       method: "POST",
       headers: {

@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   post 'signin/password' => 'signin#verify_password'
   
   get 'account' => 'account#index'
+  get 'account/passkey_options'
+  post 'account/register_passkey'
 
   get 'signup/verify'
   get 'signup/callback'
   get 'home/index'
-  get 'account/register'
-  post 'account/register_callback'
   get 'account/verify'
   post 'account/verify_callback'
   get 'account/login'
