@@ -11,5 +11,5 @@
 </div>
 
 <% @user.credentials.each do |c| %>
-<p><strong><%= c.name || "Your passkey ##{c.id}" %></strong> | <%= link_to "Remove", '/account/remove_passkey' %></p>
+<p><strong><%= c.name || "Your passkey ##{c.id}" %></strong> | <%= link_to "Remove", account_remove_passkey_url(id: c.id) %></p>
 <% end %>

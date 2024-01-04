@@ -1,0 +1,13 @@
+<h1>Remove a passkey</h1>
+
+<p>To remove this passkey, enter your password below:</p>
+
+<%= form_tag account_remove_passkey_url(), method: :post do %>
+  <%= hidden_field_tag :passkey_id, params[:id] %>
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password, nil, required: true  %>
+
+  <div>
+    <%= button_tag "Confirm delete"%>
+  </div>
+<% end %>

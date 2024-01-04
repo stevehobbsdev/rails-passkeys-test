@@ -31,6 +31,29 @@ class AccountController < ApplicationController
     cred.save!
   end
 
+  def remove_passkey
+    @cred = @user.credentials.find_by(params[:id])
+  end 
+
+  def confirm_remove_passkey
+    passkey_id = params[:passkey_id]
+
+    if @user.password != params[:password]
+      flash[:notice] = "Invalid password"
+      return render :remove_passkey, status: 401
+    end
+
+    cred = @user.credentials.find_by(passkey_id)
+
+    if !cred
+      flash[:notice] = "Invalid credential"
+      return render :remove_passkey, status: 422
+    end
+
+    cred.destroy!
+    redirect_to action: :index
+  end
+
   def logout
     session.delete(:user_id)
     redirect_to '/'

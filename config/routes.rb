@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'account' => 'account#index'
   get 'account/passkey_options'
   post 'account/register_passkey'
+  get 'account/remove_passkey'
+  post 'account/remove_passkey' => "account#confirm_remove_passkey"
 
   get 'signup/verify'
   get 'signup/callback'
